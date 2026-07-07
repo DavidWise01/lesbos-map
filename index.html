@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Island · Lesbos, where it all stood · LESBOS · ROOT0</title>
+<meta name="description" content="One small Aegean island produced Sappho, Alcaeus, Terpander's seven-string lyre, Arion, Theophrastus the father of botany, and Aristotle's first marine biology in the Kalloni lagoon — plus an 18-million-year-old petrified forest. A live 2D-canvas map of Lesbos: click the sites, each links to its sphere. LESBOS / ROOT0.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:ital,wght@0,300;0,400;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{ --sea:#170d20; --lead:#9a98a6; --parch:#e9e2d2; --gold:#d9a441; --verd:#73b3a3;
+    --murex:#c2557f; --murex-d:#9a3d68; --ink:#e9e2d2; --dim:#8f7f92; --line:rgba(194,85,127,.18); }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{min-height:100%;background:var(--sea);color:var(--ink);font-family:Spectral,Georgia,serif;line-height:1.66;
+    background-image:radial-gradient(ellipse 62% 44% at 82% 4%,rgba(194,85,127,.10),transparent 60%),radial-gradient(ellipse 50% 40% at 12% 96%,rgba(115,179,163,.06),transparent 60%)}
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 84px;position:relative}
+  .top{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;padding:12px 0;border-bottom:1px solid var(--line);color:var(--murex)}
+  .top a{color:var(--murex);text-decoration:none} .top a:hover{color:var(--gold)}
+  header{padding:40px 0 6px}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--murex)}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,7vw,62px);color:var(--parch);line-height:1.02;margin:10px 0 6px;letter-spacing:.5px}
+  .lede{font-size:clamp(16px,2.3vw,20px);font-weight:300;max-width:66ch;color:var(--ink);margin-top:10px}
+  .lede b{color:var(--gold);font-weight:400} .lede .m{color:var(--murex)}
+  section{margin:38px 0 0}
+  h2{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--murex);margin:0 0 12px;border-top:1px solid var(--line);padding-top:16px}
+  canvas{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:3px;background:#0e1522;touch-action:none;cursor:pointer}
+  .panel{margin-top:14px;padding:16px 18px;border:1px solid var(--line);border-radius:3px;background:rgba(194,85,127,.03);min-height:96px}
+  .panel .nm{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--parch)}
+  .panel .sub{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--verd);margin-top:2px;letter-spacing:.04em}
+  .panel .txt{font-size:14.5px;color:var(--ink);margin-top:9px} .panel .txt a{color:var(--murex)}
+  .prose{font-size:15px;color:var(--ink);max-width:70ch} .prose b{color:var(--gold)} .prose .m{color:var(--murex)}
+  .honest{border:1px solid var(--line);border-radius:3px;padding:15px 17px;margin-top:8px;background:rgba(194,85,127,.03)}
+  .honest h3{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--murex);margin:0 0 8px}
+  .honest p{font-size:13.5px;color:var(--dim);margin:6px 0} .honest b{color:var(--ink)}
+  footer{margin-top:44px;border-top:1px solid var(--line);padding-top:18px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--dim);line-height:1.9}
+  footer a{color:var(--murex)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a href="https://davidwise01.github.io/ud0/">◄ UD0</a> · I THINK I'M IN LESBIANS WITH YOU · <a href="https://davidwise01.github.io/the-tenth-muse/">the tenth muse ↗</a></div>
+  <header>
+    <div class="eyebrow">the ground it all stood on</div>
+    <h1>The Island</h1>
+    <p class="lede">Everything in this domain happened on one small island in the north Aegean, off the Turkish coast. In a few generations <b>Lesbos</b> produced Sappho and Alcaeus, the seven-string lyre, the singer Arion, the man who founded <b>botany</b>, and — in its central lagoon — the first real <b>marine biology</b> anyone ever did. And under its western cliffs stands a forest that turned to stone <b>eighteen million years</b> before any of them. Click a place. Each one is a sphere, or a reason this domain exists.</p>
+  </header>
+
+  <section>
+    <h2>the map · click a place</h2>
+    <canvas id="cv" width="820" height="460" aria-label="a map of the island of Lesbos with clickable sites: Eresos, Mytilene, Kalloni lagoon, the petrified forest, Antissa, Methymna"></canvas>
+    <div class="panel" id="panel"></div>
+  </section>
+
+  <section>
+    <h2>one island, an unfair share of the beginning</h2>
+    <p class="prose">It is a strange density. The <span class="m">lyric "I"</span> (Sappho), the political drinking-song and the exile's rage (Alcaeus), the archetype of the <b>seven-string lyre</b> (Terpander of Antissa), the myth of the poet saved by a dolphin (Arion of Methymna), the first systematic <b>botany</b> (Theophrastus of Eresos, who took over Aristotle's school), and Aristotle himself doing his earliest <b>biology</b> in the shallow, brackish gulf of <b>Kalloni</b> — cataloguing fish and cuttlefish and the way a life is built — all from one island you can drive across in an afternoon. The petrified forest at Sigri closes the frame: form outlasting its substance at the scale of deep time, wood become silica ring-for-ring. This domain is coloured with the island's own <a href="https://davidwise01.github.io/the-murex/">murex</a>, sings in its <a href="https://davidwise01.github.io/sounds-of-lesbos/">modes</a>, and reads its poet in <a href="https://davidwise01.github.io/the-fragments/">fragments</a>. Here is the rock they all stood on.</p>
+    <div class="honest">
+      <h3>honest note</h3>
+      <p><b>Real:</b> Lesbos (~39.2°N, 26.3°E), its two great gulfs (Kalloni, Gera), and the people and sites named are all documented — Sappho &amp; Alcaeus of Mytilene, Terpander of Antissa, Arion of Methymna, Theophrastus of Eresos, Aristotle's biological work at Kalloni, and the Sigri petrified forest (a UNESCO geopark, ~18–20 million years old).</p>
+      <p><b>Illustrative:</b> the map is a stylised schematic, not a survey — the coastline and the pin positions are approximate, drawn to be recognisable and clickable, not to scale. Birthplaces in antiquity (Sappho's Eresos vs Mytilene) are traditional attributions, not certainties.</p>
+    </div>
+  </section>
+
+  <footer>
+    THE ISLAND · Lesbos · LESBOS ("I think I'm in lesbians with you") · David Lee Wise / ROOT0, with AVAN · CC-BY-ND-4.0<br>
+    <a href="https://davidwise01.github.io/ud0/">← the biosphere</a> · <a href="https://davidwise01.github.io/the-tenth-muse/">the tenth muse</a>
+  </footer>
+</div>
+<script>
+"use strict";
+(function(){
+  var cv=document.getElementById("cv"), ctx=cv.getContext("2d");
+  var W=cv.width, H=cv.height, t=0, hover=-1, sel=0;
+  // island coastline (normalised, N up), roughly Lesbos: jagged, two deep southern gulfs
+  var COAST=[[0.12,0.34],[0.20,0.22],[0.34,0.16],[0.46,0.20],[0.58,0.15],[0.72,0.22],[0.86,0.30],[0.92,0.44],
+             [0.88,0.56],[0.82,0.60], /*Gera gulf*/ [0.80,0.48],[0.75,0.62],[0.70,0.66],[0.66,0.58],
+             [0.62,0.70], /*Kalloni gulf (deep notch up)*/ [0.55,0.44],[0.49,0.72],[0.42,0.70],
+             [0.30,0.72],[0.18,0.64],[0.08,0.52],[0.06,0.42]];
+  var SITES=[
+    {x:0.83,y:0.55,nm:"Mytilene",sub:"the polis · SE coast",link:"https://davidwise01.github.io/sappho/",
+      txt:"The island's great city, where Sappho lived and Alcaeus fought and drank, and where Pittacus — one of the Seven Sages — ruled. The centre of the lyric world. → <a href='https://davidwise01.github.io/sappho/'>Sappho</a>."},
+    {x:0.14,y:0.58,nm:"Eresos",sub:"a birthplace · SW",link:"https://davidwise01.github.io/the-fragments/",
+      txt:"Sappho's traditional birthplace — and, three centuries later, that of Theophrastus, Aristotle's successor and the father of botany. Two beginnings from one small town. → <a href='https://davidwise01.github.io/the-fragments/'>the fragments</a>."},
+    {x:0.50,y:0.585,nm:"Kalloni",sub:"the lagoon · the first biology",link:"",
+      txt:"The great brackish gulf where Aristotle did his earliest marine biology — dissecting fish and cuttlefish, watching how a body is built. Arguably the birthplace of the study of life."},
+    {x:0.075,y:0.455,nm:"Sigri · the Petrified Forest",sub:"deep time · ~18 Ma · W",link:"",
+      txt:"A forest turned to stone ~18–20 million years ago by volcanic ash, its growth rings preserved in silica — a UNESCO geopark. Form outlasting substance, at the scale of deep time."},
+    {x:0.26,y:0.28,nm:"Antissa",sub:"the lyre · NW",link:"https://davidwise01.github.io/sounds-of-lesbos/",
+      txt:"Home of Terpander, credited in antiquity with the seven-string lyre — the instrument Sappho's whole music runs on. → <a href='https://davidwise01.github.io/sounds-of-lesbos/'>Sounds of Lesbos</a>."},
+    {x:0.44,y:0.20,nm:"Methymna",sub:"the dolphin · N",link:"",
+      txt:"Home of Arion, the singer whom — the legend says — a dolphin carried safe to shore after sailors threw him overboard for his gold. Music against the sea, again."}
+  ];
+  function ix(p){ return 46+p[0]*(W-92); } function iy(p){ return 40+p[1]*(H-150); }
+  function sx(s){ return 46+s.x*(W-92); } function sy(s){ return 40+s.y*(H-150); }
+
+  function draw(){
+    t+=0.02;
+    ctx.clearRect(0,0,W,H);
+    // sea
+    var sg=ctx.createLinearGradient(0,0,0,H); sg.addColorStop(0,"#0e1522"); sg.addColorStop(1,"#0a1018");
+    ctx.fillStyle=sg; ctx.fillRect(0,0,W,H);
+    // faint swell lines
+    ctx.strokeStyle="rgba(115,179,163,.05)";
+    for(var wy=30;wy<H;wy+=22){ ctx.beginPath(); for(var wx=0;wx<=W;wx+=8){ ctx.lineTo(wx, wy+Math.sin(wx*0.03+t+wy)*2); } ctx.stroke(); }
+    // island landmass
+    ctx.beginPath(); ctx.moveTo(ix(COAST[0]),iy(COAST[0]));
+    for(var i=1;i<COAST.length;i++) ctx.lineTo(ix(COAST[i]),iy(COAST[i]));
+    ctx.closePath();
+    var lg=ctx.createLinearGradient(0,60,0,H-90); lg.addColorStop(0,"#b7a97e"); lg.addColorStop(1,"#9c8f66");
+    ctx.fillStyle=lg; ctx.fill();
+    ctx.strokeStyle="rgba(217,164,65,.5)"; ctx.lineWidth=1.5; ctx.stroke();
+    // gulf labels
+    ctx.fillStyle="rgba(115,179,163,.5)"; ctx.font="italic 12px 'Cormorant Garamond',serif";
+    ctx.fillText("Gulf of Kalloni", sx(SITES[2])-40, sy(SITES[2])+34);
+    ctx.fillText("Aegean", 60, 30);
+    // island title
+    ctx.fillStyle="rgba(70,50,30,.6)"; ctx.font="italic 22px 'Cormorant Garamond',serif"; ctx.fillText("ΛΕΣΒΟΣ", W*0.55, H*0.42);
+    // site pins
+    SITES.forEach(function(s,i){ var x=sx(s),y=sy(s),on=(hover===i||sel===i),tw=0.6+0.4*Math.sin(t*1.6+i);
+      var gg=ctx.createRadialGradient(x,y,1,x,y,on?22:14); gg.addColorStop(0,"rgba(194,85,127,"+(on?.9:.55)+")"); gg.addColorStop(1,"rgba(194,85,127,0)");
+      ctx.fillStyle=gg; ctx.beginPath(); ctx.arc(x,y,on?22:14,0,7); ctx.fill();
+      ctx.fillStyle=on?"#f0a886":"#c2557f"; ctx.beginPath(); ctx.arc(x,y,on?6:4.5,0,7); ctx.fill();
+      ctx.strokeStyle="#170d20"; ctx.lineWidth=1.2; ctx.stroke();
+      ctx.fillStyle=on?"#e9e2d2":"rgba(233,226,210,.72)"; ctx.font=(on?"600 13px":"12px")+" 'Cormorant Garamond',serif";
+      ctx.textAlign = s.x>0.6?"right":"left"; ctx.fillText(s.nm.split(" ·")[0], x+(s.x>0.6?-11:11), y+4); ctx.textAlign="left";
+    });
+    requestAnimationFrame(draw);
+  }
+  function pick(ev){ var r=cv.getBoundingClientRect(), mx=(ev.clientX-r.left)/r.width*W, my=(ev.clientY-r.top)/r.height*H, best=-1,bd=24*24;
+    SITES.forEach(function(s,i){ var dx=mx-sx(s),dy=my-sy(s),d=dx*dx+dy*dy; if(d<bd){bd=d;best=i;} }); return best; }
+  function showPanel(){ var s=SITES[sel], p=document.getElementById("panel");
+    p.innerHTML="<div class='nm'>"+s.nm+"</div><div class='sub'>"+s.sub+"</div><div class='txt'>"+s.txt+"</div>"; }
+  cv.addEventListener("pointermove",function(ev){ hover=pick(ev); cv.style.cursor=hover>=0?"pointer":"default"; });
+  cv.addEventListener("pointerdown",function(ev){ var i=pick(ev); if(i>=0){ sel=i; showPanel(); } });
+
+  showPanel(); draw();   // paints frame 1 immediately, then animates
+})();
+</script>
+</body>
+</html>
